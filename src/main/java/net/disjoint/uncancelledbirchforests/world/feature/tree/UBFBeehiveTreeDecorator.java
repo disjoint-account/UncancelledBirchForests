@@ -38,7 +38,7 @@ public class UBFBeehiveTreeDecorator extends TreeDecorator {
         if (!list2.isEmpty()) {
             Random random = generator.getRandom();
             if (!(random.nextFloat() >= this.probability)) {
-                int maxHeight = list.getFirst().getY() - 3;
+                int maxHeight = list.getFirst().getY() - 2;
                 int minHeight = list2.getFirst().getY();
                 for (Direction direction : Direction.Type.HORIZONTAL) {
                     if (random.nextFloat() <= 0.25F) {
