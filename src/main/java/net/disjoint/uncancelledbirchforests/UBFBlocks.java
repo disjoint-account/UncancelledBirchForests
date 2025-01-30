@@ -1,8 +1,7 @@
 package net.disjoint.uncancelledbirchforests;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
+import net.disjoint.uncancelledbirchforests.world.feature.tree.UBFSaplingGenerators;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -63,11 +62,17 @@ public class UBFBlocks {
             HollowPillarBlock::new, AbstractBlock.Settings.copy(PALE_OAK_LOG).nonOpaque());
     public static final Block STRIPPED_HOLLOW_PALE_OAK_LOG = registerBlock("stripped_hollow_pale_oak_log",
             HollowPillarBlock::new, AbstractBlock.Settings.copy(STRIPPED_PALE_OAK_LOG).nonOpaque());
+    public static final Block TESTER_SAPLING = registerSaplingBlock("tester_sapling", UBFSaplingGenerators.TESTER, OAK_SAPLING);
 
     //mushies
 
     public static final Block SHELF_MUSHROOM = registerBlock("shelf_mushroom",
             ShelfMushroomBlock::new, AbstractBlock.Settings.copy(BROWN_MUSHROOM));
+
+    //flowers
+
+    public static final Block STARFLOWER = registerBlock("starflower",
+            TallFlowerBlock::new, AbstractBlock.Settings.copy(LILAC));
 
 
     private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
@@ -86,6 +91,10 @@ public class UBFBlocks {
         Identifier id = Identifier.of(UncancelledBirchForests.MOD_ID, name);
         RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, id);
         Registry.register(Registries.ITEM, key, new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey().registryKey(key)));
+    }
+
+    private static Block registerSaplingBlock(String name, SaplingGenerator generator, Block base) {
+        return registerBlock(name, settings -> new SaplingBlock(generator, settings), AbstractBlock.Settings.copy(base));
     }
 
     public static void registerModBlocks() {

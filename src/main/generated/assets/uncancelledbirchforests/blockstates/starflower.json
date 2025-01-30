@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "uncancelledbirchforests:block/starflower_bottom"
+    },
+    "half=upper": {
+      "model": "uncancelledbirchforests:block/starflower_top"
+    }
+  }
+}

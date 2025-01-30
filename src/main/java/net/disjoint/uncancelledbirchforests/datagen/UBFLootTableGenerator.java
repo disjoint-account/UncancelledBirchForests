@@ -38,6 +38,7 @@ public class UBFLootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(UBFBlocks.HOLLOW_PALE_OAK_LOG);
         addDrop(UBFBlocks.STRIPPED_HOLLOW_PALE_OAK_LOG);
         addDrop(UBFBlocks.SHELF_MUSHROOM);
+        addDrop(UBFBlocks.STARFLOWER);
 
     }
 }

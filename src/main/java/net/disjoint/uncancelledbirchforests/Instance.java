@@ -1,5 +1,6 @@
 package net.disjoint.uncancelledbirchforests;
 
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 
@@ -22,6 +23,9 @@ public class Instance {
             FlammableBlockRegistry.getDefaultInstance().add(UBFBlocks.STRIPPED_HOLLOW_MANGROVE_LOG, 5, 5);
             FlammableBlockRegistry.getDefaultInstance().add(UBFBlocks.HOLLOW_CHERRY_LOG, 5, 5);
             FlammableBlockRegistry.getDefaultInstance().add(UBFBlocks.STRIPPED_HOLLOW_CHERRY_LOG, 5, 5);
+
+            CompostingChanceRegistry.INSTANCE.add(UBFBlocks.SHELF_MUSHROOM, 0.65f);
+            CompostingChanceRegistry.INSTANCE.add(UBFBlocks.STARFLOWER, 0.65f);
         }
         addStrippables();
     }

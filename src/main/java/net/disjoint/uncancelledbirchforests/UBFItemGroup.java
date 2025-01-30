@@ -36,6 +36,7 @@ public class UBFItemGroup {
                             entries.add(UBFBlocks.HOLLOW_PALE_OAK_LOG);
                             entries.add(UBFBlocks.STRIPPED_HOLLOW_PALE_OAK_LOG);
                             entries.add(UBFBlocks.SHELF_MUSHROOM);
+                            entries.add(UBFBlocks.STARFLOWER);
 }).build());
     public static void registerItemGroups() {
         UncancelledBirchForests.LOGGER.info("Registering Item Groups for " + UncancelledBirchForests.MOD_ID);

@@ -3,7 +3,7 @@
 	"package": "net.disjoint.uncancelledbirchforests.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"MixinTrunkPlacerTypeInvoker"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -3,6 +3,7 @@ package net.disjoint.uncancelledbirchforests.datagen;
 import net.disjoint.uncancelledbirchforests.UBFBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.tag.convention.v2.ConventionalBlockTags;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
 
@@ -82,5 +83,17 @@ public class UBFBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PALE_OAK_LOGS)
                 .add(UBFBlocks.HOLLOW_PALE_OAK_LOG,
                         UBFBlocks.STRIPPED_HOLLOW_PALE_OAK_LOG);
+
+        getOrCreateTagBuilder(BlockTags.FLOWERS)
+                .add(UBFBlocks.STARFLOWER);
+
+        getOrCreateTagBuilder(ConventionalBlockTags.TALL_FLOWERS)
+                .add(UBFBlocks.STARFLOWER);
+
+        getOrCreateTagBuilder(ConventionalBlockTags.FLOWERS)
+                .add(UBFBlocks.STARFLOWER);
+
+        getOrCreateTagBuilder(BlockTags.BEE_ATTRACTIVE)
+                .add(UBFBlocks.STARFLOWER);
     }
 }

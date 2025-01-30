@@ -15,6 +15,7 @@ public class UBFBlockStateModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+        blockStateModelGenerator.registerDoubleBlockAndItem(UBFBlocks.STARFLOWER, BlockStateModelGenerator.CrossType.NOT_TINTED);
     }
 
 
