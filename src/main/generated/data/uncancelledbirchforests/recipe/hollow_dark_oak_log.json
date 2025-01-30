@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "hollow_log",
+  "key": {
+    "#": "minecraft:dark_oak_log"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "uncancelledbirchforests:hollow_dark_oak_log"
+  }
+}

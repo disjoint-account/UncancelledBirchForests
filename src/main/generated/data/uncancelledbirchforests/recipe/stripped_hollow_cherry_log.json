@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "hollow_log",
+  "key": {
+    "#": "minecraft:stripped_cherry_log"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "uncancelledbirchforests:stripped_hollow_cherry_log"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "hollow_log",
+  "key": {
+    "#": "minecraft:stripped_warped_stem"
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "uncancelledbirchforests:stripped_hollow_warped_stem"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "face": "uncancelledbirchforests:block/shelf_mushroom_straight",
+    "bottom": "uncancelledbirchforests:block/shelf_mushroom_straight_bottom",
+    "edge": "uncancelledbirchforests:block/shelf_mushroom_edge",
+    "particle": "#face"
+  },
+  "elements": [
+    {   "from": [ 0, 7, 0 ],
+      "to": [ 16, 9, 8 ],
+      "faces": {
+        "down":  { "texture": "#bottom"},
+        "up":    { "texture": "#face" },
+        "north": { "texture": "#edge", "cullface": "north" },
+        "south": { "texture": "#edge"},
+        "west":  { "texture": "#edge", "cullface": "west" },
+        "east":  { "texture": "#edge", "cullface": "east" }
+      }
+    }
+  ]
+}

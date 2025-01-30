@@ -1,0 +1,58 @@
+{
+  "variants": {
+    "shelf_mushroom_type=north_single": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_single"
+    },
+    "shelf_mushroom_type=north_straight": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_straight"
+    },
+    "shelf_mushroom_type=north_east": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_corner"
+    },
+    "shelf_mushroom_type=north_west": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_corner",
+      "uvlock": false,
+      "y": 270
+    },
+    "shelf_mushroom_type=east_single": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_single",
+      "uvlock": false,
+      "y": 90
+    },
+    "shelf_mushroom_type=east_straight": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_straight",
+      "uvlock": false,
+      "y": 90
+    },
+    "shelf_mushroom_type=south_east": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_corner",
+      "uvlock": false,
+      "y": 90
+    },
+    "shelf_mushroom_type=south_single": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_single",
+      "uvlock": false,
+      "y": 180
+    },
+    "shelf_mushroom_type=south_straight": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_straight",
+      "uvlock": false,
+      "y": 180
+    },
+    "shelf_mushroom_type=south_west": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_corner",
+      "uvlock": false,
+      "y": 180
+    },
+    "shelf_mushroom_type=west_single": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_single",
+      "uvlock": false,
+      "y": 270
+    },
+    "shelf_mushroom_type=west_straight": {
+      "model": "uncancelledbirchforests:block/shelf_mushroom_straight",
+      "uvlock": false,
+      "y": 270
+    }
+  }
+}

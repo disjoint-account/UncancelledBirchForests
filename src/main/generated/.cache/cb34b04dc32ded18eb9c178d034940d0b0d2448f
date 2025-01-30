@@ -1,0 +1,13 @@
+// 1.21.4	-999999999-01-01T00:00:00	Uncancelled Birch Forests/Tags for minecraft:block
+db76a3f1a3b8d41a66c6f6313c2c2acbfd90341c data/minecraft/tags/block/acacia_logs.json
+8e2cf4fcf3e3a97fd9d43d9f6a702dc3eb8ee9b0 data/minecraft/tags/block/birch_logs.json
+fa7801c7b888f18918079619584c605a328900b3 data/minecraft/tags/block/cherry_logs.json
+66b24fdd37c8d5bb900c7c3473ec0bbc19acb07e data/minecraft/tags/block/crimson_stems.json
+4cc4c7b0ac13033aa84fcd0094086be628888063 data/minecraft/tags/block/dark_oak_logs.json
+d961b43f6f939f44b4778a7174b4baa500eff3be data/minecraft/tags/block/jungle_logs.json
+37c675a3033befc5109f5a961b3904dbb266b885 data/minecraft/tags/block/mangrove_logs.json
+47ad401bfeca67466b6eb918952e9feafe2727ff data/minecraft/tags/block/mineable/axe.json
+dcb9d061d1e28a3cef242af4c45603c4fa1fa95a data/minecraft/tags/block/oak_logs.json
+cda8ea3dd0708b9118d72d7b1f80e6c59e62594d data/minecraft/tags/block/pale_oak_logs.json
+40623be513e00e50003e2796f8db363b476985c9 data/minecraft/tags/block/spruce_logs.json
+8aee770a0f88b4d5665b991dbaf5a4dd47a2a628 data/minecraft/tags/block/warped_stems.json
