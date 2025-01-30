@@ -1,7 +1,8 @@
 package net.disjoint.uncancelledbirchforests.world.feature;
 
 import net.disjoint.uncancelledbirchforests.UncancelledBirchForests;
-import net.disjoint.uncancelledbirchforests.world.feature.tree.UBFBeehiveTreeDecorator;
+import net.disjoint.uncancelledbirchforests.world.feature.tree.decorators.ShelfMushroomTreeDecorator;
+import net.disjoint.uncancelledbirchforests.world.feature.tree.decorators.UBFBeehiveTreeDecorator;
 import net.disjoint.uncancelledbirchforests.world.feature.tree.custom.BirchTrunkPlacer;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
@@ -22,7 +23,7 @@ public class UBFConfiguredFeatures {
     private static TreeFeatureConfig.Builder birch() {
         return new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new BirchTrunkPlacer(6, 2, 0),
+                new BirchTrunkPlacer(7, 2, 0),
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0));
@@ -31,7 +32,7 @@ public class UBFConfiguredFeatures {
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         var placedFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
 
-        ConfiguredFeatures.register(context, UBF_BIRCH, Feature.TREE, birch().decorators(List.of(new UBFBeehiveTreeDecorator(1.0f))).build());
+        ConfiguredFeatures.register(context, UBF_BIRCH, Feature.TREE, birch().decorators(List.of(new UBFBeehiveTreeDecorator(1.0f), new ShelfMushroomTreeDecorator(1.0f))).build());
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

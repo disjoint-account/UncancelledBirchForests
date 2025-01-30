@@ -38,7 +38,7 @@ public class BirchTrunkPlacer extends TrunkPlacer {
         setToDirt(world, replacer, random, startPos.down(), config);
 
         int maxHeight = height + random.nextBetween(firstRandomHeight, firstRandomHeight + 3) +
-                random.nextBetween(secondRandomHeight - 2, secondRandomHeight + 2);
+                random.nextBetween(secondRandomHeight - 1, secondRandomHeight + 2);
 
         for (int i = 0; i < maxHeight; i++) {
             getAndSetState(world, replacer, random, startPos.up(i), config);

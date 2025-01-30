@@ -1,7 +1,8 @@
-package net.disjoint.uncancelledbirchforests.world.feature.tree;
+package net.disjoint.uncancelledbirchforests.world.feature.tree.decorators;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
+import net.disjoint.uncancelledbirchforests.world.feature.tree.UBFTreeDecoratorType;
 import net.minecraft.block.BeehiveBlock;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BeehiveBlockEntity;
@@ -33,21 +34,21 @@ public class UBFBeehiveTreeDecorator extends TreeDecorator {
 
     @Override
     public void generate(TreeDecorator.Generator generator) {
-        List<BlockPos> list = generator.getLeavesPositions();
-        List<BlockPos> list2 = generator.getLogPositions();
-        if (!list2.isEmpty()) {
+        List<BlockPos> leavesList = generator.getLeavesPositions();
+        List<BlockPos> logsList = generator.getLogPositions();
+        if (!logsList.isEmpty()) {
             Random random = generator.getRandom();
             if (!(random.nextFloat() >= this.probability)) {
-                int maxHeight = list.getFirst().getY() - 2;
-                int minHeight = list2.getFirst().getY();
+                int maxHeight = leavesList.getFirst().getY() - 2;
+                int minHeight = logsList.getFirst().getY();
                 for (Direction direction : Direction.Type.HORIZONTAL) {
                     if (random.nextFloat() <= 0.25F) {
-                        List<BlockPos> list3 = list2.stream().filter(pos -> pos.getY() <= maxHeight && pos.getY() >= minHeight &&
+                        List<BlockPos> list = logsList.stream().filter(pos -> pos.getY() <= maxHeight && pos.getY() >= minHeight &&
                                 generator.isAir(pos.offset(direction, 1)) && generator.isAir(pos.offset(direction, 2)) &&
                                 generator.matches(pos.offset(direction).up(1), state -> state.isOf(Blocks.BIRCH_LOG))).toList();
-                        List<BlockPos> list4 = new ArrayList<>(list3);
-                        Util.shuffle(list4, random);
-                        Optional<BlockPos> optional = list4.stream().findFirst();
+                        List<BlockPos> candidateList = new ArrayList<>(list);
+                        Util.shuffle(candidateList, random);
+                        Optional<BlockPos> optional = candidateList.stream().findFirst();
                         if (optional.isPresent()) {
                             generator.replace(optional.get().offset(direction), Blocks.BEE_NEST.getDefaultState().with(BeehiveBlock.FACING, direction));
                             generator.getWorld().getBlockEntity(optional.get().offset(direction), BlockEntityType.BEEHIVE).ifPresent(blockEntity -> {

@@ -3,7 +3,7 @@ package net.disjoint.uncancelledbirchforests;
 import net.disjoint.uncancelledbirchforests.util.UBFProperties;
 import net.disjoint.uncancelledbirchforests.util.properties.ShelfMushroomType;
 import static net.disjoint.uncancelledbirchforests.util.properties.ShelfMushroomType.*;
-import static net.minecraft.util.math.Direction.DOWN;
+import static net.minecraft.util.math.Direction.*;
 
 import net.minecraft.block.*;
 import net.minecraft.item.ItemPlacementContext;
@@ -138,6 +138,10 @@ public class ShelfMushroomBlock extends Block implements Fertilizable {
 
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        Direction north = Direction.NORTH;
+        Direction east = Direction.EAST;
+        Direction south = Direction.SOUTH;
+        Direction west = Direction.WEST;
         World world = ctx.getWorld();
         BlockPos pos = ctx.getBlockPos();
         BlockState state = world.getBlockState(pos);
@@ -146,8 +150,20 @@ public class ShelfMushroomBlock extends Block implements Fertilizable {
                 return null;
             }
             else {
-                if (this.canPlaceAt(state, world, pos)) {
-                    return this.getDefaultState().with(SHELF_MUSHROOM_TYPE, getMushroomType(world, pos));
+                if (direction == NORTH && !isValidNeighbor(world, pos, north, east) && !isValidNeighbor(world, pos, north, west)) {
+                    return getDefaultState().with(SHELF_MUSHROOM_TYPE, NORTH_SINGLE);
+                }
+                if (direction == EAST && !isValidNeighbor(world, pos, east, north) && !isValidNeighbor(world, pos, east, south)) {
+                    return getDefaultState().with(SHELF_MUSHROOM_TYPE, EAST_SINGLE);
+                }
+                if (direction == SOUTH && !isValidNeighbor(world, pos, south, east) && !isValidNeighbor(world, pos, south, west)) {
+                    return getDefaultState().with(SHELF_MUSHROOM_TYPE, SOUTH_SINGLE);
+                }
+                if (direction == WEST && !isValidNeighbor(world, pos, west, north) && !isValidNeighbor(world, pos, west, south)) {
+                    return getDefaultState().with(SHELF_MUSHROOM_TYPE, WEST_SINGLE);
+                }
+                else if (canPlaceAt(state, world, pos)) {
+                    return getDefaultState().with(SHELF_MUSHROOM_TYPE, getMushroomType(world, pos));
                 }
             }
         }
@@ -169,7 +185,15 @@ public class ShelfMushroomBlock extends Block implements Fertilizable {
             world.breakBlock(pos, true);
         }
         if (!requirements(state, world, pos) && state.canPlaceAt(world, pos)) {
-            world.setBlockState(pos, state.with(SHELF_MUSHROOM_TYPE, getMushroomType(world, pos)));
+            ShelfMushroomType type = state.get(SHELF_MUSHROOM_TYPE);
+            boolean northAvailable = faceCheck(NORTH, world, pos);
+            boolean eastAvailable = faceCheck(EAST, world, pos);
+            boolean southAvailable = faceCheck(SOUTH, world, pos);
+            boolean westAvailable = faceCheck(WEST, world, pos);
+            if (((type == NORTH_SINGLE || type == SOUTH_SINGLE) && !eastAvailable && !westAvailable) || ((type == EAST_SINGLE || type == WEST_SINGLE) && !northAvailable && !southAvailable)) {
+                world.breakBlock(pos, true);
+            }
+            else world.setBlockState(pos, state.with(SHELF_MUSHROOM_TYPE, getMushroomType(world, pos)));
         }
     }
 
