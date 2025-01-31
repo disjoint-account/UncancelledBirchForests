@@ -11,7 +11,7 @@
 		"homepage": "https://fabricmc.net/",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/uncancelledbirchforests/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -23,12 +23,16 @@
 		],
 		"fabric-datagen": [
 			"net.disjoint.uncancelledbirchforests.datagen.UBFDataGenerator"
+		],
+		"terrablender": [
+			"net.disjoint.uncancelledbirchforests.world.biome.UBFTerrablenderAPI"
 		]
 	},
 	"mixins": [
       "uncancelledbirchforests.mixins.json"
 	],
 	"depends": {
+		"terrablender": ">=4.3.0.0",
 		"fabricloader": ">=0.16.5",
 		"minecraft": "~1.21.1",
 		"java": ">=21",
