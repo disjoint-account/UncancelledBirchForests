@@ -19,20 +19,20 @@ import java.util.List;
 
 public class UBFConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> UBF_BIRCH = registerKey("ubf_birch");
-
-    private static TreeFeatureConfig.Builder birch() {
-        return new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(Blocks.BIRCH_LOG),
-                new BirchTrunkPlacer(7, 2, 0),
-                BlockStateProvider.of(Blocks.BIRCH_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
-                new TwoLayersFeatureSize(0, 0, 0));
-    }
+    public static final RegistryKey<ConfiguredFeature<?,?>> FALLEN_LOG = registerKey("fallen_log");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         var placedFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
 
-        ConfiguredFeatures.register(context, UBF_BIRCH, Feature.TREE, birch().decorators(List.of(new UBFBeehiveTreeDecorator(1.0f), new ShelfMushroomTreeDecorator(1.0f))).build());
+        register(context, UBF_BIRCH, Feature.TREE, new TreeFeatureConfig.Builder(
+                BlockStateProvider.of(Blocks.BIRCH_LOG),
+                new BirchTrunkPlacer(7, 2, 0),
+                BlockStateProvider.of(Blocks.BIRCH_LEAVES),
+                new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
+                new TwoLayersFeatureSize(0, 0, 0))
+                .decorators(List.of(new UBFBeehiveTreeDecorator(1.0f), new ShelfMushroomTreeDecorator(1.0f))).build());
+
+        register(context, FALLEN_LOG, UBFFeatures.FALLEN_LOG_FEATURE, new DefaultFeatureConfig());
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

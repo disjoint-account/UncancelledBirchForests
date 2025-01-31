@@ -1,5 +1,6 @@
 package net.disjoint.uncancelledbirchforests;
 
+import net.disjoint.uncancelledbirchforests.world.feature.UBFFeatures;
 import net.disjoint.uncancelledbirchforests.world.feature.tree.UBFTreeDecoratorType;
 import net.disjoint.uncancelledbirchforests.world.feature.tree.UBFTrunkPlacerTypes;
 import net.fabricmc.api.ModInitializer;
@@ -19,6 +20,7 @@ public class UncancelledBirchForests implements ModInitializer {
 	public void onInitialize() {
 		UBFItemGroup.registerItemGroups();
 		UBFBlocks.registerModBlocks();
+		UBFFeatures.register();
 		UBFTrunkPlacerTypes.register();
 		UBFTreeDecoratorType.register();
 		Instance.init();

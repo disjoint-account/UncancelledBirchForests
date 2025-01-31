@@ -1,6 +1,7 @@
 package net.disjoint.uncancelledbirchforests.datagen;
 
 import net.disjoint.uncancelledbirchforests.world.feature.UBFConfiguredFeatures;
+import net.disjoint.uncancelledbirchforests.world.feature.UBFPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -22,5 +23,6 @@ public class UBFDataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void buildRegistry(RegistryBuilder registryBuilder) {
 		registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, UBFConfiguredFeatures::bootstrap);
+		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, UBFPlacedFeatures::bootstrap);
 	}
 }

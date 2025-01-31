@@ -1,2 +1,6 @@
 // 1.21.4	-999999999-01-01T00:00:00	Uncancelled Birch Forests/uncancelledbirchforests
+f9c1be69ed584311bb504e6bb4b12fd61207f844 data/uncancelledbirchforests/worldgen/configured_feature/fallen_log.json
 b1413b4449050a71572a3b66ad0927df46cc53a3 data/uncancelledbirchforests/worldgen/configured_feature/ubf_birch.json
+8e1ed93e06711d7d86eea758a963fa47dcc3c3f5 data/uncancelledbirchforests/worldgen/placed_feature/fallen-log_placed.json
+a69d66f69397e13d63e4139c495f9bae12849514 data/uncancelledbirchforests/worldgen/placed_feature/ubf_birch_placed_large.json
+3bf6a2c69f8f9fd1b495452f7092a4a2ed139e92 data/uncancelledbirchforests/worldgen/placed_feature/ubf_birch_placed_small.json

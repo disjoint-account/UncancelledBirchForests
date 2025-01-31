@@ -47,7 +47,7 @@ public class BirchTrunkPlacer extends TrunkPlacer {
         for (Direction direction : Direction.Type.HORIZONTAL) {
             int minBranchHeight = 2;
             int maxBranchHeight = maxHeight - 4;
-            int branchHeight = minBranchHeight + (int)(Math.random() * ((maxBranchHeight - minBranchHeight) + 1));
+            int branchHeight = random.nextBetween(minBranchHeight, maxBranchHeight);
             if (random.nextBoolean()) {
                 BlockPos candidatePos = startPos.up(branchHeight).offset(direction);
                 if (random.nextFloat() > 0.3f && world.testBlockState(candidatePos, AbstractBlock.AbstractBlockState::isAir) && horizontalCheck(world, candidatePos, direction)) {
