@@ -1,6 +1,5 @@
 package net.disjoint.uncancelledbirchforests;
 
-import net.disjoint.uncancelledbirchforests.world.feature.tree.UBFSaplingGenerators;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -62,7 +61,6 @@ public class UBFBlocks {
             HollowPillarBlock::new, AbstractBlock.Settings.copy(PALE_OAK_LOG).nonOpaque());
     public static final Block STRIPPED_HOLLOW_PALE_OAK_LOG = registerBlock("stripped_hollow_pale_oak_log",
             HollowPillarBlock::new, AbstractBlock.Settings.copy(STRIPPED_PALE_OAK_LOG).nonOpaque());
-    public static final Block TESTER_SAPLING = registerSaplingBlock("tester_sapling", UBFSaplingGenerators.TESTER, OAK_SAPLING);
 
     //mushies
 

@@ -4,7 +4,7 @@
     "decorators": [
       {
         "type": "minecraft:ubf_beehive",
-        "probability": 1.0
+        "probability": 0.25
       },
       {
         "type": "minecraft:shelf_mushroom",

@@ -51,8 +51,7 @@ public class ShelfMushroomTreeDecorator extends TreeDecorator {
                         Util.shuffle(candidateList, random);
                         Optional<BlockPos> optional = candidateList.stream().findFirst();
                         if (optional.isPresent()) {
-                            boolean bl = random.nextBoolean();
-                            if (bl) {
+                            if (random.nextBoolean()) {
                                 if (spaceCheck(generator, optional.get(), direction.rotateClockwise(Direction.Axis.Y)) &&
                                         spaceCheck(generator, optional.get().offset(direction), direction.rotateClockwise(Direction.Axis.Y)) &&
                                         generator.isAir(optional.get().offset(direction, 2).offset(direction.rotateClockwise(Direction.Axis.Y), 2))) {
@@ -77,16 +76,16 @@ public class ShelfMushroomTreeDecorator extends TreeDecorator {
     private ShelfMushroomType getType(boolean bl, Direction direction, int i) {
         if (!bl) {
             if (direction == Direction.NORTH) {
-                return ShelfMushroomType.NORTH_SINGLE;
-            }
-            if (direction == Direction.EAST) {
-                return ShelfMushroomType.EAST_SINGLE;
-            }
-            if (direction == Direction.SOUTH) {
                 return ShelfMushroomType.SOUTH_SINGLE;
             }
-            if (direction == Direction.WEST) {
+            if (direction == Direction.EAST) {
                 return ShelfMushroomType.WEST_SINGLE;
+            }
+            if (direction == Direction.SOUTH) {
+                return ShelfMushroomType.NORTH_SINGLE;
+            }
+            if (direction == Direction.WEST) {
+                return ShelfMushroomType.EAST_SINGLE;
             }
         } else {
             if (direction == Direction.NORTH) {
@@ -94,10 +93,10 @@ public class ShelfMushroomTreeDecorator extends TreeDecorator {
                     return (ShelfMushroomType.SOUTH_EAST);
                 }
                 if (i == 1) {
-                    return (ShelfMushroomType.SOUTH_WEST);
+                    return (ShelfMushroomType.NORTH_WEST);
                 }
                 if (i == 2) {
-                    return (ShelfMushroomType.NORTH_WEST);
+                    return (ShelfMushroomType.SOUTH_WEST);
                 }
             }
             if (direction == Direction.EAST) {
@@ -105,10 +104,10 @@ public class ShelfMushroomTreeDecorator extends TreeDecorator {
                     return (ShelfMushroomType.SOUTH_WEST);
                 }
                 if (i == 1) {
-                    return (ShelfMushroomType.NORTH_WEST);
+                    return (ShelfMushroomType.NORTH_EAST);
                 }
                 if (i == 2) {
-                    return (ShelfMushroomType.NORTH_EAST);
+                    return (ShelfMushroomType.NORTH_WEST);
                 }
             }
             if (direction == Direction.SOUTH) {
@@ -116,10 +115,10 @@ public class ShelfMushroomTreeDecorator extends TreeDecorator {
                     return (ShelfMushroomType.NORTH_WEST);
                 }
                 if (i == 1) {
-                    return (ShelfMushroomType.NORTH_EAST);
+                    return (ShelfMushroomType.SOUTH_EAST);
                 }
                 if (i == 2) {
-                    return (ShelfMushroomType.SOUTH_EAST);
+                    return (ShelfMushroomType.NORTH_EAST);
                 }
             }
             if (direction == Direction.WEST) {
@@ -127,10 +126,10 @@ public class ShelfMushroomTreeDecorator extends TreeDecorator {
                     return (ShelfMushroomType.NORTH_EAST);
                 }
                 if (i == 1) {
-                    return (ShelfMushroomType.SOUTH_EAST);
+                    return (ShelfMushroomType.SOUTH_WEST);
                 }
                 if (i == 2) {
-                    return (ShelfMushroomType.SOUTH_WEST);
+                    return (ShelfMushroomType.SOUTH_EAST);
                 }
             }
         }

@@ -15,7 +15,8 @@ import java.util.List;
 public class UBFPlacedFeatures {
     public static final RegistryKey<PlacedFeature> UBF_BIRCH_PLACED_SMALL = registerKey("ubf_birch_placed_small");
     public static final RegistryKey<PlacedFeature> UBF_BIRCH_PLACED_LARGE = registerKey("ubf_birch_placed_large");
-    public static final RegistryKey<PlacedFeature> FALLEN_LOG_PLACED = registerKey("fallen-log_placed");
+    public static final RegistryKey<PlacedFeature> FALLEN_LOG_PLACED = registerKey("fallen_log_placed");
+    public static final RegistryKey<PlacedFeature> STARFLOWER_PLACED = registerKey("starflower_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -27,6 +28,8 @@ public class UBFPlacedFeatures {
                 VegetationPlacedFeatures.treeModifiersWithWouldSurvive(PlacedFeatures.createCountExtraModifier(4, 0.5f, 8), Blocks.BIRCH_SAPLING));
 
         register(context, FALLEN_LOG_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(UBFConfiguredFeatures.FALLEN_LOG));
+
+        register(context, STARFLOWER_PLACED, configuredFeatureRegistryEntryLookup.getOrThrow(UBFConfiguredFeatures.STARFLOWER));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

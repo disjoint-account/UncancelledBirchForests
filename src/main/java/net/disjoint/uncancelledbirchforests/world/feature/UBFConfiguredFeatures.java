@@ -1,5 +1,6 @@
 package net.disjoint.uncancelledbirchforests.world.feature;
 
+import net.disjoint.uncancelledbirchforests.UBFBlocks;
 import net.disjoint.uncancelledbirchforests.UncancelledBirchForests;
 import net.disjoint.uncancelledbirchforests.world.feature.tree.decorators.ShelfMushroomTreeDecorator;
 import net.disjoint.uncancelledbirchforests.world.feature.tree.decorators.UBFBeehiveTreeDecorator;
@@ -20,6 +21,7 @@ import java.util.List;
 public class UBFConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> UBF_BIRCH = registerKey("ubf_birch");
     public static final RegistryKey<ConfiguredFeature<?,?>> FALLEN_LOG = registerKey("fallen_log");
+    public static final RegistryKey<ConfiguredFeature<?,?>> STARFLOWER = registerKey("starflower");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         var placedFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
@@ -30,9 +32,11 @@ public class UBFConfiguredFeatures {
                 BlockStateProvider.of(Blocks.BIRCH_LEAVES),
                 new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(0), 3),
                 new TwoLayersFeatureSize(0, 0, 0))
-                .decorators(List.of(new UBFBeehiveTreeDecorator(1.0f), new ShelfMushroomTreeDecorator(1.0f))).build());
+                .decorators(List.of(new UBFBeehiveTreeDecorator(0.25f), new ShelfMushroomTreeDecorator(1.0f))).build());
 
         register(context, FALLEN_LOG, UBFFeatures.FALLEN_LOG_FEATURE, new DefaultFeatureConfig());
+
+        register(context, STARFLOWER, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(BlockStateProvider.of(UBFBlocks.STARFLOWER)));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
